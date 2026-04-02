@@ -1,0 +1,32 @@
+.background-3d-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Specific theme background if canvas doesn't cover everything */
+[data-theme='dark'] .background-3d-container {
+  background: #020617;
+}
+
+[data-theme='light'] .background-3d-container {
+  background: #f8fafc;
+}
+
+/* Ensure foreground content is readable */
+.about-page, .projects-page, .resume-page, .hero-section {
+  position: relative;
+  z-index: 1;
+}

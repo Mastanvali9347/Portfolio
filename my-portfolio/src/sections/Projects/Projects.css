@@ -1,0 +1,197 @@
+.projects {
+  padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Centered Header with Underline */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #fff, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.header-underline {
+  height: 4px;
+  background: linear-gradient(to right, #a855f7, #6366f1);
+  border-radius: 2px;
+}
+
+/* Grid Configuration */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Professional Project Card with Square/Proportional Aspect */
+.project-card {
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  min-height: 450px; /* MINI HIGHT */
+  max-width: 500px; /* MAX WIDTH */
+  margin: 0 auto;
+  background: #000;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  width: 100%;
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease, filter 1.2s ease;
+}
+
+.project-card:hover .card-img {
+  transform: scale(1.15) rotate(1deg);
+  filter: brightness(0.2) blur(4px);
+}
+
+/* Default Content (Skills bar at bottom) */
+.card-default-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+  z-index: 5;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .card-default-content {
+  opacity: 0; /* Hides when revealing details */
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  padding: 5px 15px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Reveal Details Overlay */
+.project-overlay-details {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 20;
+}
+
+.overlay-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.overlay-inner h3 {
+  font-family: 'Times New Roman', serif;
+  font-size: 2.22rem;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.overlay-inner p {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  max-width: 90%;
+  margin-bottom: 20px;
+}
+
+/* Overlay Navigation Row */
+.overlay-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.overlay-buttons-row a {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.overlay-buttons-row a:hover {
+  color: #a855f7;
+  transform: scale(1.2);
+}
+
+.details-reveal-btn {
+  padding: 10px 25px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Times New Roman', serif;
+  letter-spacing: 1px;
+}
+
+.details-reveal-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .section-header h2 { font-size: 2.8rem; }
+  .projects-grid { 
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

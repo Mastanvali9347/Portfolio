@@ -1,0 +1,42 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 1400;
+  opacity: 0;
+  animation: fadeBackdrop 0.3s ease forwards;
+}
+
+@keyframes fadeBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.backdrop.blur-strong {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.backdrop.gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(30, 41, 59, 0.8)
+  );
+}
+
+@media (max-width: 768px) {
+  .backdrop {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .backdrop {
+    background: rgba(0, 0, 0, 0.75);
+  }
+}

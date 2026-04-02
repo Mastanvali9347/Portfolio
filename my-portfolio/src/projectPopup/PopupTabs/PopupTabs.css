@@ -1,0 +1,94 @@
+.popup-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tabs-header {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.tabs-header button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+  color: var(--text-color);
+}
+
+.tabs-header button:hover {
+  background: var(--card-bg, rgba(255, 255, 255, 0.08));
+}
+
+.tabs-header button.active {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: #fff;
+}
+
+.tabs-content {
+  min-height: 120px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.tab-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-badge {
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  background: var(--color-primary);
+  color: #fff;
+  transition: var(--transition-fast);
+}
+
+.tech-badge:hover {
+  background: var(--color-secondary);
+  transform: translateY(-3px);
+}
+
+.tab-details p,
+.tab-overview p {
+  margin-bottom: 10px;
+}
+
+@keyframes fadeTabs {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tabs-content {
+  animation: fadeTabs 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .tabs-header {
+    gap: 10px;
+  }
+
+  .tabs-header button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .tabs-content {
+    font-size: 0.85rem;
+  }
+}

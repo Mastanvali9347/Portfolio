@@ -1,0 +1,76 @@
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1300;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.scroll-top.floating {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: #fff;
+}
+
+.scroll-top.floating:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-top.minimal {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--color-primary);
+}
+
+.scroll-top.minimal:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.scroll-top.progress {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+@keyframes bounceTop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.scroll-top.floating {
+  animation: bounceTop 2s infinite ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .scroll-top {
+    width: 42px;
+    height: 42px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-top {
+    width: 38px;
+    height: 38px;
+    font-size: 0.8rem;
+  }
+}
