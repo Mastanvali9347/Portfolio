@@ -8,6 +8,7 @@ import crudImg from "../../assets/projects/crud.png"
 import aiImg from "../../assets/projects/ai.png"
 import chatbotImg from "../../assets/projects/chatbot.png"
 import recordsImg from "../../assets/projects/records.png"
+import housiegameImg from "../../assets/projects/housiegame.png"
 
 export default function Projects() {
   const { openPopup } = usePopup()
@@ -52,6 +53,14 @@ export default function Projects() {
       github: "https://github.com/Mastanvali9347/Patient-Health-Records",
       image: recordsImg,
       skills: ["HTML", "CSS", "JavaScript", "Django", "MySQL"]
+    },
+    {
+      title: "Housie Game",
+      description: "A real-time multiplayer Housie game built with FastAPI and React. Features include ticket generation, number calling, and win detection with a modern, responsive interface.",
+      link: "https://game-gamma-puce.vercel.app/lobby",
+      github: "https://github.com/Mastanvali9347/game",
+      image: housiegameImg,
+      skills: ["FastAPI", "Python", "Supabase", "React", "javascript", "HTML", "CSS"]
     }
   ]
 
@@ -69,7 +78,7 @@ export default function Projects() {
   return (
     <section className="projects" id="projects">
       <div className="projects-container">
-        <motion.div 
+        <motion.div
           className="section-header"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +88,7 @@ export default function Projects() {
           <div className="header-underline" />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="projects-grid"
           initial="hidden"
           whileInView="visible"
@@ -97,7 +106,7 @@ export default function Projects() {
             >
               <div className="project-image-wrapper">
                 <img src={project.image} alt={project.title} className="card-img" />
-                
+
                 {/* Default Bottom Content */}
                 <div className="card-default-content">
                   <div className="skills-row">
@@ -108,7 +117,7 @@ export default function Projects() {
                 </div>
 
                 {/* Animated Hover Overlay */}
-                <motion.div 
+                <motion.div
                   className="project-overlay-details"
                   initial="hidden"
                   whileHover="reveal"
@@ -120,7 +129,7 @@ export default function Projects() {
                   <div className="overlay-inner">
                     <motion.h3 variants={revealVariants}>{project.title}</motion.h3>
                     <motion.p variants={revealVariants}>{project.description}</motion.p>
-                    
+
                     <motion.div className="overlay-buttons-row" variants={revealVariants}>
                       <a href={project.github} target="_blank" rel="noopener noreferrer" title="GitHub">
                         <FaGithub />
@@ -128,7 +137,7 @@ export default function Projects() {
                       <a href={project.link} target="_blank" rel="noopener noreferrer" title="Live Demo">
                         <FaExternalLinkAlt />
                       </a>
-                      <button 
+                      <button
                         className="details-reveal-btn"
                         onClick={() => openPopup(project)}
                       >

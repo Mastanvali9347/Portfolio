@@ -8,6 +8,7 @@ import chatbotImg from "../assets/projects/chatbot.png"
 import crudImg from "../assets/projects/crud.png"
 import healthImg from "../assets/projects/health.png"
 import recordsImg from "../assets/projects/records.png"
+import housiegameImg from "../assets/projects/housiegame.png"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -84,6 +85,14 @@ export default function ProjectsPage() {
       tech: ["React", "HTML", "CSS", "JavaScript"],
       description: "A comprehensive system for managing structured patient health records. Focuses on accessibility and clarity, allowing healthcare professionals to quickly retrieve and update vital patient data.",
       link: "https://patient-health-records.vercel.app"
+    },
+    {
+      title: "Housie Game",
+      category: "Full Stack",
+      image: housiegameImg,
+      tech: ["FastAPI", "Python", "Supabase", "React", "javascript", "HTML", "CSS"],
+      description: "A real-time multiplayer Housie game built with FastAPI and React. Features include ticket generation, number calling, and win detection with a modern, responsive interface.",
+      link: "https://game-gamma-puce.vercel.app/lobby"
     }
   ]
 
