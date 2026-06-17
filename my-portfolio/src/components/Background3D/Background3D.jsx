@@ -206,7 +206,7 @@ function CameraRig() {
 export default function Background3D() {
   const { theme } = useTheme()
   const isDark = theme === 'dark'
-  const bgColor = isDark ? '#020617' : '#f8fafc'
+  const bgColor = '#050505'
 
   const planets = [
     { name: "Mercury", distance: 8, speed: 1.0, size: 0.35, color: "#94a0b8" },

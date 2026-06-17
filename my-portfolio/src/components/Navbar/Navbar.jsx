@@ -1,84 +1,101 @@
-import { NavLink } from "react-router-dom"
-import { motion } from "framer-motion"
-import { useState } from "react"
-import useScroll from "../../hooks/useScroll"
-import ThemeToggle from "../ThemeToggle/ThemeToggle"
-import "./Navbar.css"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronRight } from "lucide-react";
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const { direction, scrollY } = useScroll()
-  const [menuOpen, setMenuOpen] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const navVariants = {
-    hidden: { y: -100 },
-    visible: { y: 0, transition: { duration: .4 } }
-  }
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen)
-  }
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Stats", href: "#github" },
+  ];
 
   return (
+    <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${scrolled ? "py-4" : "py-8"}`}>
+      <div className="container mx-auto px-6">
+        <div className={`mx-auto max-w-5xl glass rounded-full px-6 py-3 flex items-center justify-between transition-all duration-500 ${scrolled ? "bg-black/60 border-white/10" : "bg-transparent border-transparent"}`}>
+          
+          <a href="#home" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center font-bold text-black group-hover:scale-110 transition-transform">
+              PM
+            </div>
+            <span className="hidden md:block font-display font-medium tracking-tight text-white/90 group-hover:text-white">
+              Patan Mastanvali
+            </span>
+          </a>
 
-    <motion.header
-      variants={navVariants}
-      initial="hidden"
-      animate={direction === "down" && scrollY > 80 ? "hidden" : "visible"}
-      className={`navbar ${scrollY > 50 ? "scrolled" : ""}`}
-
-    >
-
-      <div className="navbar-container">
-
-        <NavLink to="/" className="logo">
-          <span>Mastan's</span> Portfolio
-        </NavLink>
-
-        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-
-          <NavLink to="/" end onClick={() => setMenuOpen(false)}>
-            Home </NavLink>
-
-          <NavLink to="/about" onClick={() => setMenuOpen(false)}>
-            About </NavLink>
-
-          <NavLink to="/projects" onClick={() => setMenuOpen(false)}>
-            Projects </NavLink>
-
-          <NavLink to="/resume" className="resume-link" onClick={() => setMenuOpen(false)}>
-            Resume </NavLink>
-
-          <NavLink
-            to="/contact"
-            className="contact-btn"
-            onClick={() => setMenuOpen(false)}
-
-          >
-
-            Contact </NavLink>
-
-        </nav>
-
-        <div className="nav-right">
-
-          <ThemeToggle />
-
-          <div
-            className={`hamburger ${menuOpen ? "open" : ""}`}
-            onClick={toggleMenu}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className="text-sm font-medium text-white/60 hover:text-gold transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a 
+              href="#contact" 
+              className="bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-gold transition-all"
+            >
+              Hire Me
+            </a>
           </div>
 
+          {/* Mobile Toggle */}
+          <button 
+            className="md:hidden p-2 text-white/60"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
         </div>
-
       </div>
 
-    </motion.header>
-
-  )
-
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 p-6 md:hidden"
+          >
+            <div className="glass-card p-6 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-lg font-medium text-white/60 hover:text-gold"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <a 
+                href="#contact" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="block bg-gold text-black text-center py-3 rounded-xl font-bold"
+              >
+                Hire Me
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
 }

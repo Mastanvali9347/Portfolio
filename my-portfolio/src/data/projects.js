@@ -1,89 +1,88 @@
 const projects = [
   {
-    id: "health-consent",
-    title: "Health-Data-Consent-Management-System",
+    id: "housie-multiplayer",
+    title: "Housie Multiplayer Game",
     category: "Full Stack",
-    tech: ["Python", "Django", "MySQL"],
-    description:
-      "A secure healthcare platform to manage digital consent with authentication, authorization, and structured patient data handling.",
-    features: [
-      "Role-based authentication system",
-      "Secure patient consent management",
-      "Database integration with MySQL",
-      "Responsive UI with structured forms"
-    ],
-    link: "https://health-data-consent-management-system.onrender.com",
-    github: "",
-    images: ["/preview.png"]
+    tech: ["React", "Node.js", "Socket.io", "MongoDB"],
+    description: "A real-time multiplayer Housie (Bingo) game platform with voice chat, automated ticket verification, and interactive prize management.",
+    features: ["Real-time synchronization", "Voice & Text chat", "Automated game logic", "Interactive UI"],
+    link: "https://housie-multiplayer.vercel.app",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?q=80&w=1000",
+    tags: ["React", "Full Stack"]
   },
   {
-    id: "customer-crud",
-    title: "Customer_CRUD_App",
-    category: "Full Stack",
-    tech: ["Python", "Django", "MySQL"],
-    description:
-      "A full-stack CRUD application to manage customer records with backend validation and responsive interface.",
-    features: [
-      "Create, Read, Update, Delete operations",
-      "Server-side validation",
-      "Dynamic templates",
-      "Database integration"
-    ],
-    link: "https://customer-crud-app-90na.onrender.com",
-    github: "",
-    images: ["/preview.png"]
+    id: "talent-circuit",
+    title: "Talent Circuit Portfolio",
+    category: "React",
+    tech: ["React", "Framer Motion", "GSAP", "Tailwind"],
+    description: "Ultra-premium developer portfolio with advanced 3D components, smooth scrolling, and cinematic animations.",
+    features: ["3D Galaxy Skills", "Lenis Smooth Scroll", "Holographic UI", "Glassmorphism"],
+    link: "https://portfolio.vercel.app",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000",
+    tags: ["React", "Animations"]
   },
   {
-    id: "ai-code-detection",
-    title: "AI-Code-Detection",
+    id: "bitebazaar",
+    title: "BiteBazaar",
+    category: "Full Stack",
+    tech: ["React", "FastAPI", "PostgreSQL", "Tailwind"],
+    description: "Modern food delivery and menu management platform with AI-driven recommendations and secure payment integration.",
+    features: ["AI Recommendations", "Real-time Tracking", "Admin Dashboard", "Secure Payments"],
+    link: "https://bitebazaar.onrender.com",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000",
+    tags: ["Full Stack", "Python"]
+  },
+  {
+    id: "mahabharath-ai",
+    title: "Mahabharath AI",
     category: "AI",
-    tech: ["React", "JavaScript"],
-    description:
-      "AI-powered web tool to analyze and detect patterns in source code with interactive UI.",
-    features: [
-      "Code pattern detection",
-      "Interactive UI design",
-      "Real-time input handling",
-      "Responsive layout"
-    ],
-    link: "https://ai-code-detection-nine.vercel.app",
-    github: "",
-    images: ["/preview.png"]
+    tech: ["Python", "OpenAI", "React", "Flask"],
+    description: "An AI-powered conversational platform providing insights and wisdom from the Mahabharata using advanced LLMs.",
+    features: ["Context-aware Chat", "Historical Insights", "Modern AI UI", "Multilingual Support"],
+    link: "https://mahabharath-ai.vercel.app",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1526637761110-3343a4e9b940?q=80&w=1000",
+    tags: ["AI", "Python"]
   },
   {
-    id: "chatbot",
-    title: "Chatbot_Application",
-    category: "Frontend",
-    tech: ["HTML", "CSS", "JavaScript"],
-    description:
-      "Interactive chatbot interface simulating real-time conversations with modern UI.",
-    features: [
-      "Dynamic chat interface",
-      "User input handling",
-      "Responsive design",
-      "Clean UI layout"
-    ],
-    link: "https://mastanvali9347.github.io/Chatbot_application/",
-    github: "",
-    images: ["/preview.png"]
+    id: "dsa-ai-instructor",
+    title: "DSA AI Instructor",
+    category: "AI",
+    tech: ["React", "Python", "FastAPI", "Gemini API"],
+    description: "AI-driven education platform for learning Data Structures and Algorithms with real-time code analysis and personalized tutoring.",
+    features: ["Code Analysis", "Visualizations", "Personalized Path", "Interactive REPL"],
+    link: "https://dsa-ai-instructor.vercel.app",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=1000",
+    tags: ["AI", "React"]
   },
   {
-    id: "patient-records",
-    title: "Patient-Health-Records",
+    id: "malwarescope",
+    title: "MalwareScope Analyzer",
+    category: "Python",
+    tech: ["Python", "Machine Learning", "Streamlit", "Scikit-Learn"],
+    description: "Security tool for analyzing and detecting malicious patterns in files using machine learning algorithms and static analysis.",
+    features: ["ML Classification", "Static Analysis", "Dashboard", "Threat Reports"],
+    link: "https://malwarescope.onrender.com",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
+    tags: ["Python", "AI"]
+  },
+  {
+    id: "stpi-network",
+    title: "STPI Network Management",
     category: "Full Stack",
-    tech: ["React", "Node.js"],
-    description:
-      "Web platform to manage and organize patient health records with structured data presentation.",
-    features: [
-      "REST API integration",
-      "Modern UI with React",
-      "Data management system",
-      "Responsive design"
-    ],
-    link: "https://patient-health-records.vercel.app",
-    github: "",
-    images: ["/preview.png"]
+    tech: ["React", "Python", "FastAPI", "MongoDB"],
+    description: "Enterprise-grade network management system for STPI with real-time monitoring and analytics.",
+    features: ["Real-time Monitoring", "Analytics Dashboard", "Secure Auth", "Reporting"],
+    link: "https://stpi-network.onrender.com",
+    github: "https://github.com",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000",
+    tags: ["Full Stack", "Python"]
   }
-]
+];
 
-export default projects
+export default projects;

@@ -1,29 +1,34 @@
-import { lazy, Suspense } from "react"
-import Loader from "../components/Loader/Loader"
-import ScrollIndicator from "../components/ScrollIndicator/ScrollIndicator"
+import { lazy, Suspense } from "react";
+import Hero from "../sections/Hero/Hero";
+import About from "../sections/About/About";
+import AIIntro from "../sections/AIIntro/AIIntro";
+import SkillsGalaxy from "../sections/SkillsGalaxy/SkillsGalaxy";
+import LiveStats from "../sections/LiveStats/LiveStats";
+import Projects from "../sections/Projects/Projects";
+import Experience from "../sections/Experience/Experience";
+import GithubStats from "../sections/GithubStats/GithubStats";
+import AIAssistant from "../components/AIAssistant/AIAssistant";
 
-const Hero = lazy(() => import("../sections/Hero/Hero"))
-const About = lazy(() => import("../sections/About/About"))
-const Skills = lazy(() => import("../sections/Skills/Skills"))
-const Experience = lazy(() => import("../sections/Experience/Experience"))
-const Projects = lazy(() => import("../sections/Projects/Projects"))
-const ResumeSection = lazy(() => import("../sections/Resume/Resume"))
-const Contact = lazy(() => import("../sections/Contact/Contact"))
+// Lazy load if needed, but for premium feel we can load main sections
+const Contact = lazy(() => import("../sections/Contact/Contact"));
 
 export default function Home() {
   return (
-    <>
-      <ScrollIndicator type="top-bar" />
-
-      <Suspense fallback={<Loader type="spinner" />}>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <ResumeSection />
+    <div className="relative">
+      <Hero />
+      <About />
+      <AIIntro />
+      <SkillsGalaxy />
+      <LiveStats />
+      <Projects />
+      <Experience />
+      <GithubStats />
+      
+      <Suspense fallback={<div className="h-20" />}>
         <Contact />
       </Suspense>
-    </>
-  )
+      
+      <AIAssistant />
+    </div>
+  );
 }
