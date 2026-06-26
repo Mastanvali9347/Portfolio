@@ -126,7 +126,7 @@ html.lenis {
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto;
+  scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
@@ -139,4 +139,8 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+body {
+  min-height: 100vh;
 }

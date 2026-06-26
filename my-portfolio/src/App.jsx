@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
+import Resume from "./pages/Resume";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Background3D from "./components/Background3D/Background3D";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
@@ -17,6 +18,11 @@ export default function App() {
 
   useLenis();
 
+  useEffect(() => {
+    if (!loading && window.lenis) {
+      window.lenis.resize();
+    }
+  }, [loading]);
   return (
     <ThemeProvider>
       <PopupProvider>
@@ -25,7 +31,6 @@ export default function App() {
             <LoadingScreen key="loader" onComplete={() => setLoading(false)} />
           ) : (
             <>
-              <CustomCursor />
               <Background3D />
               <Navbar />
 
@@ -40,6 +45,7 @@ export default function App() {
                   >
                     <Routes location={location}>
                       <Route path="/" element={<Home />} />
+                      <Route path="/resume" element={<Resume />} />
                     </Routes>
                   </motion.div>
                 </AnimatePresence>

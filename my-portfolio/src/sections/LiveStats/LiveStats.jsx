@@ -6,7 +6,7 @@ const stats = [
   { label: "Technologies Learned", value: 20, suffix: "+", color: "blue" },
   { label: "Certificates", value: 10, suffix: "+", color: "orange" },
   { label: "Coding Hours", value: 2500, suffix: "+", color: "gold" },
-  { label: "GitHub Repos", value: 50, suffix: "+", color: "blue" },
+  { label: "GitHub Repos", value: 30, suffix: "+", color: "blue" },
 ];
 
 const StatCard = ({ label, value, suffix, color, index }) => {
@@ -20,7 +20,7 @@ const StatCard = ({ label, value, suffix, color, index }) => {
       const end = value;
       const duration = 2000;
       const increment = end / (duration / 16);
-      
+
       const timer = setInterval(() => {
         start += increment;
         if (start >= end) {
@@ -50,7 +50,7 @@ const StatCard = ({ label, value, suffix, color, index }) => {
       <div className={`text-sm uppercase tracking-widest text-${color} font-medium`}>
         {label}
       </div>
-      
+
       {/* Background glow on hover */}
       <div className={`absolute inset-0 bg-gradient-to-br from-transparent to-${color}/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl`} />
     </motion.div>
@@ -67,7 +67,7 @@ export default function LiveStats() {
           ))}
         </div>
       </div>
-      
+
       {/* Divider */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-white/20 to-transparent" />
     </section>

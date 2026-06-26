@@ -44,7 +44,7 @@ const projects = [
     features: ["Context-aware Chat", "Historical Insights", "Modern AI UI", "Multilingual Support"],
     link: "https://mahabharath-ai.vercel.app",
     github: "https://github.com",
-    image: "https://images.unsplash.com/photo-1526637761110-3343a4e9b940?q=80&w=1000",
+    image: "/assets/projects/mahabharath-ai.png",
     tags: ["AI", "Python"]
   },
   {

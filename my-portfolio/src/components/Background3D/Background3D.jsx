@@ -7,8 +7,8 @@ import './Background3D.css'
 
 function MilkyWay() {
   const points = useMemo(() => {
-    const p = new Float32Array(10000 * 3)
-    for (let i = 0; i < 10000; i++) {
+    const p = new Float32Array(3000 * 3)
+    for (let i = 0; i < 3000; i++) {
       const radius = Math.random() * 60 + 5
       const angle = Math.random() * Math.PI * 2
       const swirl = (radius * 0.15)
@@ -192,16 +192,6 @@ function Sun() {
   )
 }
 
-function CameraRig() {
-  const { camera, mouse } = useThree()
-  useFrame(() => {
-    // Smoothed camera movement based on mouse
-    camera.position.x += (mouse.x * 2 - camera.position.x) * 0.02
-    camera.position.y += (mouse.y * 2 + 10 - camera.position.y) * 0.02
-    camera.lookAt(0, 0, 0)
-  })
-  return null
-}
 
 export default function Background3D() {
   const { theme } = useTheme()
@@ -222,21 +212,25 @@ export default function Background3D() {
 
   return (
     <div className="background-3d-container">
-      <Canvas camera={{ position: [0, 20, 50], fov: 45 }} dpr={[1, 2]}>
+      <Canvas 
+        camera={{ position: [0, 25, 40], fov: 45 }} 
+        dpr={[1, 1.2]} 
+        gl={{ powerPreference: "high-performance", antialias: false }}
+        performance={{ min: 0.5 }}
+      >
         <color attach="background" args={[bgColor]} />
         <ambientLight intensity={isDark ? 0.25 : 0.65} />
         <pointLight position={[0, 0, 0]} intensity={1} color="#ffffff" />
         
-        <CameraRig />
 
         <Stars 
           radius={400} 
-          depth={150} 
-          count={isDark ? 12000 : 5000} 
-          factor={8} 
-          saturation={0.5} 
+          depth={100} 
+          count={isDark ? 3000 : 1500} 
+          factor={6} 
+          saturation={0} 
           fade 
-          speed={2} 
+          speed={1} 
         />
         
         <MilkyWay />
@@ -247,11 +241,11 @@ export default function Background3D() {
           <Planet key={p.name} {...p} offset={i * 2.5} />
         ))}
 
-        {/* Global Space Sparkles */}
-        <Sparkles count={200} scale={100} size={1} speed={0.4} opacity={0.3} color="#ffffff" />
+        {/* Global Space Sparkles - Further reduced */}
+        <Sparkles count={50} scale={100} size={1} speed={0.4} opacity={0.3} color="#ffffff" />
 
-        {/* Dynamic Asteroids */}
-        {Array.from({ length: 60 }).map((_, i) => (
+        {/* Dynamic Asteroids - Reduced count for performance */}
+        {Array.from({ length: 25 }).map((_, i) => (
           <Float key={i} speed={1.5} rotationIntensity={3} floatIntensity={1}>
             <mesh position={[
               (Math.random() - 0.5) * 120,

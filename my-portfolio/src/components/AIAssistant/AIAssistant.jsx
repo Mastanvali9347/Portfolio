@@ -26,7 +26,7 @@ export default function AIAssistant() {
     // Simple bot logic
     setTimeout(() => {
       let botResponse = "I'm not sure about that, but Patan is definitely an expert in React and Python! You should check his projects.";
-      
+
       const lowerInput = input.toLowerCase();
       if (lowerInput.includes("who") || lowerInput.includes("about")) {
         botResponse = "Patan Mastanvali is a Full Stack Developer specializing in React and Python. He's graduating in 2025 from Bharath University.";
@@ -35,7 +35,7 @@ export default function AIAssistant() {
       } else if (lowerInput.includes("project")) {
         botResponse = "He has built some amazing projects like a Multiplayer Housie game, an AI DSA Instructor, and MalwareScope Analyzer.";
       } else if (lowerInput.includes("contact") || lowerInput.includes("email")) {
-        botResponse = "You can reach him via email at patan@example.com or through the contact section below.";
+        botResponse = "You can reach him via email at patanmastan455@gmail.com or through the contact section below.";
       }
 
       setMessages(prev => [...prev, { role: "assistant", content: botResponse }]);
@@ -43,14 +43,14 @@ export default function AIAssistant() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[1000]">
+    <div className="fixed bottom-8 right-8 z-1000">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
-            className="absolute bottom-20 right-0 w-[350px] h-[500px] glass-card flex flex-col border-gold/20 shadow-2xl shadow-gold/10"
+            className="absolute bottom-20 right-0 w-87.5 h-125 glass-card flex flex-col border-gold/20 shadow-2xl shadow-gold/10"
           >
             {/* Header */}
             <div className="p-4 border-b border-white/10 flex items-center justify-between bg-gold/5">
@@ -65,7 +65,7 @@ export default function AIAssistant() {
                   </div>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-white/10 rounded-lg transition-colors"
               >
@@ -74,7 +74,7 @@ export default function AIAssistant() {
             </div>
 
             {/* Messages */}
-            <div 
+            <div
               ref={scrollRef}
               className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide"
             >
@@ -85,11 +85,10 @@ export default function AIAssistant() {
                   animate={{ opacity: 1, x: 0 }}
                   className={`flex ${ms.role === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
-                    ms.role === "user" 
-                    ? "bg-gold text-black rounded-tr-none font-medium" 
-                    : "bg-white/5 border border-white/10 text-white/80 rounded-tl-none font-light"
-                  }`}>
+                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${ms.role === "user"
+                      ? "bg-gold text-black rounded-tr-none font-medium"
+                      : "bg-white/5 border border-white/10 text-white/80 rounded-tl-none font-light"
+                    }`}>
                     {ms.content}
                   </div>
                 </motion.div>
@@ -103,6 +102,7 @@ export default function AIAssistant() {
                   { icon: User, label: "Who are you?", cmd: "Who is Patan?" },
                   { icon: Code, label: "Skills?", cmd: "What are your skills?" },
                   { icon: Mail, label: "Contact", cmd: "How to contact you?" },
+                  { icon: Sparkles, label: "Projects?", cmd: "What are your projects?" },
                 ].map((act, i) => (
                   <button
                     key={i}
@@ -125,7 +125,7 @@ export default function AIAssistant() {
                   placeholder="Type a message..."
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-gold/50 transition-colors pr-12 outline-none"
                 />
-                <button 
+                <button
                   onClick={handleSend}
                   className="absolute right-2 top-1.5 p-2 bg-gold text-black rounded-lg hover:scale-105 transition-transform"
                 >

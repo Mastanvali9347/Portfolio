@@ -4,21 +4,33 @@ import Lenis from 'lenis';
 export const useLenis = () => {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothTouch: false,
-      touchMultiplier: 2,
+      lerp: 0.08,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      normalizeWheel: true,
     });
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
+
+    // Auto-resize on window scale
+    const handleResize = () => lenis.resize();
+    window.addEventListener('resize', handleResize);
+
+    // Global access
+    window.lenis = lenis;
 
     return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', handleResize);
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 };
