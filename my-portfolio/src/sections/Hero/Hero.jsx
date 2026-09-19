@@ -10,7 +10,7 @@ export default function Hero() {
   };
 
   const matter =
-    "I am a Full Stack Developer & AI Engineer from Andhra Pradesh, India. I build high-performance web apps, intelligent AI systems, and real-time platforms using React, Python, FastAPI & Node.js. Passionate about crafting seamless user experiences, scalable backend architectures, and integrating AI into modern digital products — turning complex ideas into clean, production-ready solutions that make a real impact.";
+    "I am a QA Automation Engineer & Software Tester from Andhra Pradesh, India. I specialize in building robust test automation frameworks, ensuring top software quality, and streamlining test processes using Selenium, Cypress, Playwright, and API Testing tools (Postman, REST Assured). Passionate about identifying edge cases, optimizing CI/CD pipelines, and delivering defect-free, highly reliable applications that guarantee seamless user experiences.";
 
   return (
     <section id="home" className="hero-section">
@@ -32,7 +32,7 @@ export default function Hero() {
         >
           <div className="flex items-center gap-2 text-[#00f3ff] text-[10px] tracking-[0.3em] font-bold">
             <Terminal size={14} />
-            <span>AI_ARCHITECT_v2.0</span>
+            <span>QA_AUTOMATION_ENGINEER</span>
           </div>
 
           <h1 className="hero-title">

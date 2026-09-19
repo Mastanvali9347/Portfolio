@@ -35,15 +35,31 @@ export default function Navbar() {
             }`}
         > <a
           href="#home"
-          className="flex items-center gap-2 group"
-        > <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center font-bold text-black group-hover:scale-110 transition-transform">
-              PM </div>
-
-            ```
-            <span className="hidden md:block font-display font-medium tracking-tight text-white/90 group-hover:text-white">
+          className="flex items-center group cursor-pointer"
+        >
+          <motion.div 
+            className="w-11 h-11 rounded-full flex items-center justify-center font-black text-black shadow-[0_0_15px_rgba(0,243,255,0.6)] shrink-0 z-10"
+            style={{ background: 'linear-gradient(135deg, #00f3ff, #00ff9d)' }}
+            whileHover={{ scale: 1.15, rotate: 360 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            PM
+          </motion.div>
+          
+          <div className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] max-w-0 group-hover:max-w-[250px] opacity-0 group-hover:opacity-100">
+            <span 
+              className="hidden md:block font-display font-bold tracking-wider text-xl whitespace-nowrap pl-3"
+              style={{ 
+                background: 'linear-gradient(90deg, #00f3ff, #00ff9d)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                filter: 'drop-shadow(0px 0px 4px rgba(0,243,255,0.3))'
+              }}
+            >
               Patan Mastanvali
             </span>
-          </a>
+          </div>
+        </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
